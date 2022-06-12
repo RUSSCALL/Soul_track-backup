@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateAttendanceTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('attendance', function (Blueprint $table) {
+            $table->id();
+            $table->string('fullname');
+            $table->integer('number');
+            $table->string('residence');
+            $table->string('cell');
+            $table->date('date_of_birth');
+            $table->string('email');
+            $table->boolean('first_timer_check');
+            $table->string('invited_by')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('attendance');
+    }
+}
